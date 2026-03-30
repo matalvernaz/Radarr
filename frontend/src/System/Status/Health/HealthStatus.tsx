@@ -4,6 +4,7 @@ import AppState from 'App/State/AppState';
 import PageSidebarStatus from 'Components/Page/Sidebar/PageSidebarStatus';
 import usePrevious from 'Helpers/Hooks/usePrevious';
 import { fetchHealth } from 'Store/Actions/systemActions';
+import translate from 'Utilities/String/translate';
 import createHealthSelector from './createHealthSelector';
 
 function HealthStatus() {

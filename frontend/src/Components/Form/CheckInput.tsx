@@ -1,5 +1,11 @@
 import classNames from 'classnames';
-import React, { SyntheticEvent, MouseEvent as ReactMouseEvent, useCallback, useEffect, useRef } from 'react';
+import React, {
+  MouseEvent as ReactMouseEvent,
+  SyntheticEvent,
+  useCallback,
+  useEffect,
+  useRef,
+} from 'react';
 import Icon from 'Components/Icon';
 import { icons } from 'Helpers/Props';
 import { Kind } from 'Helpers/Props/kinds';
@@ -63,12 +69,12 @@ function CheckInput(props: CheckInputProps) {
   );
 
   const handleClick = useCallback(
-    (event: SyntheticEvent<HTMLElement, ReactMouseEvent>) => {
+    (event: ReactMouseEvent<HTMLLabelElement>) => {
       if (isDisabled) {
         return;
       }
 
-      shiftKeyRef.current = event.nativeEvent.shiftKey;
+      shiftKeyRef.current = event.shiftKey;
     },
     [isDisabled]
   );

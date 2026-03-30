@@ -108,7 +108,7 @@ function TablePager({
                 isDisabled={totalPages === 1}
                 aria-label={translate('PagerGoToPage', {
                   page,
-                  totalPages,
+                  totalPages: totalPages ?? 0,
                 })}
                 onPress={handleOpenPageSelectClick}
               >

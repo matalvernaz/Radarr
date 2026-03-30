@@ -49,13 +49,13 @@ function TableHeaderCell({
     }
   }, [name, fixedSortDirection, onSortPress]);
 
-  const ariaSort = isSorting
-    ? sortDirection === sortDirections.ASCENDING
-      ? 'ascending'
-      : 'descending'
-    : isSortable
-      ? 'none'
-      : undefined;
+  let ariaSort: 'ascending' | 'descending' | 'none' | undefined = undefined;
+  if (isSorting) {
+    ariaSort =
+      sortDirection === sortDirections.ASCENDING ? 'ascending' : 'descending';
+  } else if (isSortable) {
+    ariaSort = 'none';
+  }
 
   return isSortable ? (
     <Link
