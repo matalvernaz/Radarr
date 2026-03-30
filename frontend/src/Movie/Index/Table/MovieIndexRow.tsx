@@ -482,6 +482,7 @@ function MovieIndexRow(props: MovieIndexRowProps) {
               <IconButton
                 name={icons.EDIT}
                 title={translate('EditMovie')}
+                aria-label={translate('EditMovie')}
                 onPress={onEditMoviePress}
               />
             </VirtualTableRowCell>

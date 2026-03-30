@@ -29,8 +29,18 @@ function QueueStatus() {
     }
   }, [isConnected, wasReconnecting, dispatch]);
 
+  const ariaLabel =
+    count === 1
+      ? translate('QueueItem')
+      : translate('QueueItems', { count });
+
   return (
-    <PageSidebarStatus count={count} errors={errors} warnings={warnings} />
+    <PageSidebarStatus
+      count={count}
+      errors={errors}
+      warnings={warnings}
+      aria-label={ariaLabel}
+    />
   );
 }
 

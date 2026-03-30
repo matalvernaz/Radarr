@@ -54,6 +54,7 @@ function MovieSearchCell({ movieId }: MovieSearchCellProps) {
       <IconButton
         name={icons.INTERACTIVE}
         title={translate('InteractiveSearch')}
+        aria-label={translate('InteractiveSearch')}
         onPress={setInteractiveSearchModalOpen}
       />
 

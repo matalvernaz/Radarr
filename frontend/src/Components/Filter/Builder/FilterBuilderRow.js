@@ -4,6 +4,7 @@ import SelectInput from 'Components/Form/SelectInput';
 import IconButton from 'Components/Link/IconButton';
 import { filterBuilderTypes, filterBuilderValueTypes, icons } from 'Helpers/Props';
 import sortByProp from 'Utilities/Array/sortByProp';
+import translate from 'Utilities/String/translate';
 import BoolFilterBuilderRowValue from './BoolFilterBuilderRowValue';
 import DateFilterBuilderRowValue from './DateFilterBuilderRowValue';
 import FilterBuilderRowValueConnector from './FilterBuilderRowValueConnector';
@@ -280,11 +281,13 @@ class FilterBuilderRow extends Component {
           <IconButton
             name={icons.SUBTRACT}
             isDisabled={filterCount === 1}
+            aria-label={translate('RemoveFilter')}
             onPress={this.onRemovePress}
           />
 
           <IconButton
             name={icons.ADD}
+            aria-label={translate('AddFilter')}
             onPress={this.onAddPress}
           />
         </div>

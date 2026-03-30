@@ -671,6 +671,9 @@ function MovieDetails({ movieId }: MovieDetailsProps) {
                       title={translate('MovieDetailsGoTo', {
                         title: previousMovie.title,
                       })}
+                      aria-label={translate('MovieDetailsGoTo', {
+                        title: previousMovie.title,
+                      })}
                       to={`/movie/${previousMovie.titleSlug}`}
                     />
                   ) : null}
@@ -681,6 +684,9 @@ function MovieDetails({ movieId }: MovieDetailsProps) {
                       name={icons.ARROW_RIGHT}
                       size={30}
                       title={translate('MovieDetailsGoTo', {
+                        title: nextMovie.title,
+                      })}
+                      aria-label={translate('MovieDetailsGoTo', {
                         title: nextMovie.title,
                       })}
                       to={`/movie/${nextMovie.titleSlug}`}

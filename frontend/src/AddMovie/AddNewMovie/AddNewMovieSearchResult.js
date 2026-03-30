@@ -101,6 +101,7 @@ class AddNewMovieSearchResult extends Component {
       <div className={styles.searchResult}>
         <Link
           className={styles.underlay}
+          aria-label={isExistingMovie ? title : translate('AddMovieWithTitle', { title })}
           {...linkProps}
         />
 

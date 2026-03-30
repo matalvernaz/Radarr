@@ -458,10 +458,11 @@ function PageSidebar({ isSidebarVisible, isSmallScreen }: PageSidebarProps) {
   const ScrollerComponent = isSmallScreen ? Scroller : OverlayScroller;
 
   return (
-    <div
+    <nav
       ref={sidebarRef}
       className={classNames(styles.sidebarContainer)}
       style={containerStyle}
+      aria-label={translate('MainNavigation')}
     >
       <ScrollerComponent
         className={styles.sidebar}
@@ -520,7 +521,7 @@ function PageSidebar({ isSidebarVisible, isSmallScreen }: PageSidebarProps) {
 
         <Messages />
       </ScrollerComponent>
-    </div>
+    </nav>
   );
 }
 

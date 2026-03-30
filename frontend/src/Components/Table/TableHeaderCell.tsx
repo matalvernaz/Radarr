@@ -49,6 +49,14 @@ function TableHeaderCell({
     }
   }, [name, fixedSortDirection, onSortPress]);
 
+  const ariaSort = isSorting
+    ? sortDirection === sortDirections.ASCENDING
+      ? 'ascending'
+      : 'descending'
+    : isSortable
+      ? 'none'
+      : undefined;
+
   return isSortable ? (
     <Link
       {...otherProps}
@@ -56,14 +64,20 @@ function TableHeaderCell({
       className={className}
       // label={typeof label === 'function' ? label() : label}
       title={typeof columnLabel === 'function' ? columnLabel() : columnLabel}
+      scope="col"
+      aria-sort={ariaSort}
       onPress={handlePress}
     >
       {children}
 
-      {isSorting && <Icon name={sortIcon} className={styles.sortIcon} />}
+      {isSorting && (
+        <Icon name={sortIcon} className={styles.sortIcon} aria-hidden={true} />
+      )}
     </Link>
   ) : (
-    <th className={className}>{children}</th>
+    <th className={className} scope="col">
+      {children}
+    </th>
   );
 }
 

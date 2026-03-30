@@ -48,8 +48,18 @@ function HealthStatus() {
     }
   }, [isConnected, wasReconnecting, dispatch]);
 
+  const ariaLabel =
+    count === 1
+      ? translate('HealthIssue')
+      : translate('HealthIssues', { count });
+
   return (
-    <PageSidebarStatus count={count} errors={errors} warnings={warnings} />
+    <PageSidebarStatus
+      count={count}
+      errors={errors}
+      warnings={warnings}
+      aria-label={ariaLabel}
+    />
   );
 }
 

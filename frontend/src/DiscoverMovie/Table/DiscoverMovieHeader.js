@@ -81,6 +81,7 @@ class DiscoverMovieHeader extends Component {
                 >
                   <IconButton
                     name={icons.ADVANCED_SETTINGS}
+                    aria-label={translate('TableOptionsButton')}
                     onPress={this.onTableOptionsPress}
                   />
                 </VirtualTableHeaderCell>

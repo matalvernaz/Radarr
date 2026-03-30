@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { SyntheticEvent, useCallback, useEffect, useRef } from 'react';
+import React, { SyntheticEvent, MouseEvent as ReactMouseEvent, useCallback, useEffect, useRef } from 'react';
 import Icon from 'Components/Icon';
 import { icons } from 'Helpers/Props';
 import { Kind } from 'Helpers/Props/kinds';
@@ -41,6 +41,7 @@ function CheckInput(props: CheckInputProps) {
   } = props;
 
   const inputRef = useRef<HTMLInputElement>(null);
+  const shiftKeyRef = useRef(false);
 
   const isChecked = value === checkedValue;
   const isUnchecked = value === uncheckedValue;
@@ -62,25 +63,22 @@ function CheckInput(props: CheckInputProps) {
   );
 
   const handleClick = useCallback(
-    (event: SyntheticEvent<HTMLElement, MouseEvent>) => {
+    (event: SyntheticEvent<HTMLElement, ReactMouseEvent>) => {
       if (isDisabled) {
         return;
       }
 
-      const shiftKey = event.nativeEvent.shiftKey;
-      const checked = !(inputRef.current?.checked ?? false);
-
-      event.preventDefault();
-      toggleChecked(checked, shiftKey);
+      shiftKeyRef.current = event.nativeEvent.shiftKey;
     },
-    [isDisabled, toggleChecked]
+    [isDisabled]
   );
 
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       const checked = event.target.checked;
-      const shiftKey = event.nativeEvent.shiftKey;
+      const shiftKey = shiftKeyRef.current;
 
+      shiftKeyRef.current = false;
       toggleChecked(checked, shiftKey);
     },
     [toggleChecked]

@@ -216,6 +216,7 @@ function MovieIndexOverview(props: MovieIndexOverviewProps) {
               <IconButton
                 name={icons.EDIT}
                 title={translate('EditMovie')}
+                aria-label={translate('EditMovie')}
                 onPress={onEditMoviePress}
               />
             </div>

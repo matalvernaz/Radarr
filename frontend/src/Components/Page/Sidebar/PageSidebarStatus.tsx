@@ -6,12 +6,14 @@ interface PageSidebarStatusProps {
   count?: number;
   errors?: boolean;
   warnings?: boolean;
+  'aria-label'?: string;
 }
 
 function PageSidebarStatus({
   count,
   errors,
   warnings,
+  'aria-label': ariaLabel,
 }: PageSidebarStatusProps) {
   if (!count) {
     return null;
@@ -26,7 +28,7 @@ function PageSidebarStatus({
   }
 
   return (
-    <Label kind={kind} size="medium">
+    <Label kind={kind} size="medium" aria-label={ariaLabel}>
       {count}
     </Label>
   );

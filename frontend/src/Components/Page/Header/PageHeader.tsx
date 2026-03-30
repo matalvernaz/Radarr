@@ -69,6 +69,7 @@ function PageHeader({ isSmallScreen }: PageHeaderProps) {
         <IconButton
           id="sidebar-toggle-button"
           name={icons.NAVBAR_COLLAPSE}
+          aria-label={translate('ToggleSidebar')}
           onPress={handleSidebarToggle}
         />
       </div>
@@ -88,6 +89,7 @@ function PageHeader({ isSmallScreen }: PageHeaderProps) {
         <IconButton
           className={styles.translate}
           title={translate('SuggestTranslationChange')}
+          aria-label={translate('SuggestTranslationChange')}
           name={icons.TRANSLATE}
           to="https://translate.servarr.com/projects/radarr/radarr/"
           size={24}

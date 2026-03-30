@@ -4,6 +4,7 @@ import IconButton from 'Components/Link/IconButton';
 import Link from 'Components/Link/Link';
 import MiddleTruncate from 'Components/MiddleTruncate';
 import { icons } from 'Helpers/Props';
+import translate from 'Utilities/String/translate';
 import { TagBase } from './TagInput';
 import styles from './TagInputTag.css';
 
@@ -67,6 +68,7 @@ function TagInputTag<T extends TagBase>({
               className={styles.editButton}
               name={icons.EDIT}
               size={9}
+              aria-label={translate('Edit')}
               onPress={handleEdit}
             />
           </div>

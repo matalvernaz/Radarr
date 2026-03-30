@@ -177,6 +177,7 @@ function MovieIndexPoster(props: MovieIndexPosterProps) {
           <IconButton
             name={icons.EDIT}
             title={translate('EditMovie')}
+            aria-label={translate('EditMovie')}
             onPress={onEditMoviePress}
           />
 

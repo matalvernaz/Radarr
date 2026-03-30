@@ -15,6 +15,7 @@ import { Size } from 'Helpers/Props/sizes';
 import { isIOS } from 'Utilities/browser';
 import * as keyCodes from 'Utilities/Constants/keyCodes';
 import { setScrollLock } from 'Utilities/scrollLock';
+import ModalContext from './ModalContext';
 import ModalError from './ModalError';
 import styles from './Modal.css';
 
@@ -73,6 +74,7 @@ function Modal({
   const bodyScrollTop = useRef(0);
   const wasOpen = usePrevious(isOpen);
   const modalId = useId();
+  const headerId = `modal-header-${modalId}`;
 
   const isTargetBackdrop = useCallback((event: TouchEvent | MouseEvent) => {
     const targetElement = findEventTarget(event);
@@ -164,25 +166,33 @@ function Modal({
   }
 
   return ReactDOM.createPortal(
-    <FocusLock disabled={false}>
-      <div className={styles.modalContainer}>
-        <div
-          ref={backgroundRef}
-          className={backdropClassName}
-          onMouseDown={handleBackdropBeginPress}
-          onMouseUp={handleBackdropEndPress}
-        >
-          <div className={classNames(className, styles[size])} style={style}>
-            <ErrorBoundary
-              errorComponent={ModalError}
-              onModalClose={onModalClose}
+    <ModalContext.Provider value={{ headerId }}>
+      <FocusLock disabled={false}>
+        <div className={styles.modalContainer}>
+          <div
+            ref={backgroundRef}
+            className={backdropClassName}
+            onMouseDown={handleBackdropBeginPress}
+            onMouseUp={handleBackdropEndPress}
+          >
+            <div
+              className={classNames(className, styles[size])}
+              style={style}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby={headerId}
             >
-              {children}
-            </ErrorBoundary>
+              <ErrorBoundary
+                errorComponent={ModalError}
+                onModalClose={onModalClose}
+              >
+                {children}
+              </ErrorBoundary>
+            </div>
           </div>
         </div>
-      </div>
-    </FocusLock>,
+      </FocusLock>
+    </ModalContext.Provider>,
     node!
   );
 }
