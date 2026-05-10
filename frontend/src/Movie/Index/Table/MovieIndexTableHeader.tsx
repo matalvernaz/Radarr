@@ -10,12 +10,12 @@ import VirtualTableHeaderCell from 'Components/Table/VirtualTableHeaderCell';
 import VirtualTableSelectAllHeaderCell from 'Components/Table/VirtualTableSelectAllHeaderCell';
 import { icons } from 'Helpers/Props';
 import { SortDirection } from 'Helpers/Props/sortDirections';
-import translate from 'Utilities/String/translate';
 import {
   setMovieSort,
   setMovieTableOption,
 } from 'Store/Actions/movieIndexActions';
 import { CheckInputChanged } from 'typings/inputs';
+import translate from 'Utilities/String/translate';
 import MovieIndexTableOptions from './MovieIndexTableOptions';
 import styles from './MovieIndexTableHeader.css';
 

@@ -33,10 +33,7 @@ function ExtraFileDetailsPopover(props: ExtraFileDetailsPopoverProps) {
     return (
       <Popover
         anchor={
-          <IconButton
-            name={icons.INFO}
-            aria-label={translate('Details')}
-          />
+          <IconButton name={icons.INFO} aria-label={translate('Details')} />
         }
         title={translate('Tags')}
         body={

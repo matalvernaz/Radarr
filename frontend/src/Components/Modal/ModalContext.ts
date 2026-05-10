@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 
 interface ModalContextType {
-    headerId: string;
+  headerId: string;
 }
 
 const ModalContext = createContext<ModalContextType>({ headerId: '' });
