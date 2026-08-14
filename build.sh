@@ -14,6 +14,7 @@ tar -C /home/matt/radarr-fork -cf - \
     --exclude='node_modules' \
     --exclude='_output' \
     package.json yarn.lock tsconfig.json frontend Dockerfile \
+    src/NzbDrone.Core/Localization/Core/en.json \
   | incus exec "$CONTAINER" -- tar -xf - -C "$BUILD_DIR"
 
 echo "==> Running lint (auto-fix)..."
